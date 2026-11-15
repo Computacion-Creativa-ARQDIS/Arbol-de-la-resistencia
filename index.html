@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repositorio de investigación</title>
+<style>
+        body {
+      margin: 0;
+      background: #1d5fa8;
+      font-family: system-ui, sans-serif;
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      background: #ebebeb;
+      color: #222;
+    }
+
+    .arbol {
+      position: relative;
+      width: min(100%, 640px);
+      aspect-ratio: 640 / 427;
+      margin: 0 auto;
+      background: url("arbol.jpg") center / 100% 100% no-repeat;
+    }
+
+    .nodo {
+      position: absolute;
+      display: block;
+      transform: translate(-50%, -50%);
+    }
+
+    .nodo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+    }
+
+    .nodo:hover img,
+    .nodo:focus-visible img {
+      transform: scale(1.15);
+    }
+
+    .nodo::after {
+      content: attr(data-titulo);
+      position: absolute;
+      left: 50%;
+      bottom: 110%;
+      transform: translateX(-50%);
+      background: #111;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+
+    .nodo:hover::after,
+    .nodo:focus-visible::after {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Repositorio de investigación</h1>
+  <p>Selecciona un símbolo del árbol para explorar el ejercicio.</p>
+</header>
+
+<main class="arbol">
+  <!-- Las posiciones están en % del recorte del árbol.
+       left/top marcan el centro del símbolo. -->
+
+  <a class="nodo" href="#casa-comunitaria" data-titulo="Casa comunitaria"
+     style="left: 21.5%; top: 15.2%; width: 5.9%; height: 8.9%;">
+    <img src="simbolos/1.png" alt="Casa comunitaria">
+  </a>
+
+  <a class="nodo" href="#comedor" data-titulo="Comedor comunitario"
+     style="left: 71.0%; top: 22.0%; width: 4.1%; height: 8.4%;">
+    <img src="simbolos/2.png" alt="Comedor comunitario">
+  </a>
+
+  <a class="nodo" href="#archivo" data-titulo="Archivo y documentación"
+     style="left: 39.3%; top: 44.0%; width: 8.1%; height: 8.9%;">
+    <img src="simbolos/3.png" alt="Archivo y documentación">
+  </a>
+
+  <a class="nodo" href="#exposicion" data-titulo="Exposición"
+     style="left: 20.1%; top: 51.3%; width: 8.1%; height: 8.9%;">
+    <img src="simbolos/4.png" alt="Exposición">
+  </a>
+
+  <a class="nodo" href="#360" data-titulo="Videos 360°"
+     style="left: 74.8%; top: 44.0%; width: 3.4%; height: 8.9%;">
+    <img src="simbolos/5.png" alt="Videos 360°">
+  </a>
+
+  <a class="nodo" href="#libro" data-titulo="Libro interactivo"
+     style="left: 71.3%; top: 60.0%; width: 3.4%; height: 8.9%;">
+    <img src="simbolos/6.png" alt="Libro interactivo">
+  </a>
+
+  <a class="nodo" href="#paisaje-sonoro" data-titulo="Paisaje sonoro"
+     style="left: 21.9%; top: 81.1%; width: 10.9%; height: 8.9%;">
+    <img src="simbolos/7.png" alt="Paisaje sonoro">
+  </a>
+</main>
+
+</body>
+</html>
