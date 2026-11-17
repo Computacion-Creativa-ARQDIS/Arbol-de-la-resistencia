@@ -1,118 +1,155 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Repositorio de investigación</title>
-<style>
-        body {
-      margin: 0;
-      background: #1d5fa8;
-      font-family: system-ui, sans-serif;
-      color: #fff;
-    }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El Árbol de la Resistencia</title>
+  <meta name="description" content="Archivo digital de las iniciativas comunitarias de un asentamiento en Ciudad Bolívar, Bogotá, alrededor del Árbol de la Resistencia.">
+  <meta property="og:title" content="El Árbol de la Resistencia">
+  <meta property="og:description" content="Siete objetos, siete iniciativas: la memoria y el cuidado colectivo de un asentamiento en Ciudad Bolívar.">
+  <meta property="og:image" content="assets/img/arbol.jpg">
 
-    header {
-      text-align: center;
-      padding: 3rem 1.5rem 2rem;
-      background: #ebebeb;
-      color: #222;
-    }
-
-    .arbol {
-      position: relative;
-      width: min(100%, 640px);
-      aspect-ratio: 640 / 427;
-      margin: 0 auto;
-      background: url("arbol.jpg") center / 100% 100% no-repeat;
-    }
-
-    .nodo {
-      position: absolute;
-      display: block;
-      transform: translate(-50%, -50%);
-    }
-
-    .nodo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      transition: transform 0.2s ease;
-    }
-
-    .nodo:hover img,
-    .nodo:focus-visible img {
-      transform: scale(1.15);
-    }
-
-    .nodo::after {
-      content: attr(data-titulo);
-      position: absolute;
-      left: 50%;
-      bottom: 110%;
-      transform: translateX(-50%);
-      background: #111;
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s;
-    }
-
-    .nodo:hover::after,
-    .nodo:focus-visible::after {
-      opacity: 1;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/extras.css">
 </head>
 <body>
 
-<header>
-  <h1>Repositorio de investigación</h1>
-  <p>Selecciona un símbolo del árbol para explorar el ejercicio.</p>
-</header>
+  <!-- ============ 1. ENCABEZADO: barra + hero + franja ============ -->
+  <header class="barra">
+    <nav class="nav" aria-label="Secciones">
+      <a href="about.html">About</a>
+      <a href="archivo.html">Archivo</a>
+    </nav>
+  </header>
 
-<main class="arbol">
-  <!-- Las posiciones están en % del recorte del árbol.
-       left/top marcan el centro del símbolo. -->
+  <section class="hero" id="inicio">
+    <h1>Árbol de la<br>resistencia</h1>
+    <p class="lema">Lógica y afecto, unidos.</p>
+    <ul class="datos">
+      <li>Ciudad Bolívar</li>
+      <li>Bogotá, Col.</li>
+      <li>Archivo digital</li>
+    </ul>
+  </section>
 
-  <a class="nodo" href="#casa-comunitaria" data-titulo="Casa comunitaria"
-     style="left: 21.5%; top: 15.2%; width: 5.9%; height: 8.9%;">
-    <img src="simbolos/1.png" alt="Casa comunitaria">
-  </a>
+  <div class="franja">
+    <a class="accion" href="#arbol">Explorar el árbol <span aria-hidden="true">↓</span></a>
+    <a class="accion principal" href="#apoyo">Apoyar el proyecto <span aria-hidden="true">→</span></a>
+  </div>
 
-  <a class="nodo" href="#comedor" data-titulo="Comedor comunitario"
-     style="left: 71.0%; top: 22.0%; width: 4.1%; height: 8.4%;">
-    <img src="simbolos/2.png" alt="Comedor comunitario">
-  </a>
+  <main>
 
-  <a class="nodo" href="#archivo" data-titulo="Archivo y documentación"
-     style="left: 39.3%; top: 44.0%; width: 8.1%; height: 8.9%;">
-    <img src="simbolos/3.png" alt="Archivo y documentación">
-  </a>
+    <!-- ============ 2. FRASE + TARJETAS + ÁRBOL INTERACTIVO (dos columnas) ============ -->
+    <section class="seccion-arbol" id="arbol" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo" class="solo-lectores">El Árbol de la Resistencia</h2>
 
-  <a class="nodo" href="#exposicion" data-titulo="Exposición"
-     style="left: 20.1%; top: 51.3%; width: 8.1%; height: 8.9%;">
-    <img src="simbolos/4.png" alt="Exposición">
-  </a>
+      <div class="col-izq">
+        <p class="frase">
+          Alrededor del Árbol de la Resistencia, un asentamiento <span class="nw">(<button class="chip" data-obj="asentamiento" type="button"></button>)</span>
+          se volvió hogar. En una gran olla <span class="nw">(<button class="chip" data-obj="olla" type="button"></button>)</span>
+          se cocina para todos, las llantas <span class="nw">(<button class="chip" data-obj="llantas" type="button"></button>)</span>
+          desechadas se vuelven asiento, las cubetas <span class="nw">(<button class="chip" data-obj="cubetas" type="button"></button>)</span>
+          siguen regando al árbol y en el parque <span class="nw">(<button class="chip" data-obj="parque" type="button"></button>)</span>
+          la infancia juega.
+        </p>
 
-  <a class="nodo" href="#360" data-titulo="Videos 360°"
-     style="left: 74.8%; top: 44.0%; width: 3.4%; height: 8.9%;">
-    <img src="simbolos/5.png" alt="Videos 360°">
-  </a>
+        <p class="pista">
+          <span class="pista-puntero">Pasa el cursor</span><span class="pista-tactil">Toca</span>
+          los cuadros en blanco sobre la foto — cada uno esconde un objeto y una iniciativa.
+        </p>
 
-  <a class="nodo" href="#libro" data-titulo="Libro interactivo"
-     style="left: 71.3%; top: 60.0%; width: 3.4%; height: 8.9%;">
-    <img src="simbolos/6.png" alt="Libro interactivo">
-  </a>
+        <div class="rejilla rejilla-vertical">
+          <article class="celda-p">
+            <h3>Quiénes habitan</h3>
+            <p>Personas desplazadas por la violencia, provenientes del Tolima, Venezuela y otros lugares. Conviven comunidades indígenas y campesinas, madres de familia y mujeres solteras que han hecho de este territorio un hogar.</p>
+          </article>
+          <article class="celda-p">
+            <h3>Qué hacen</h3>
+            <p>Un comedor comunitario, actividades de fin de semana en la zona verde, arte y animación como mediación cultural, y el cuidado colectivo del árbol alrededor del cual todo se reúne.</p>
+          </article>
+          <article class="celda-p">
+            <h3>Por qué importa</h3>
+            <p>Reconocer y expresar las experiencias individuales y colectivas contribuye a sanar el trauma, reconstruir la identidad y fortalecer el tejido social tras haber sido despojados de sus comunidades de origen.</p>
+          </article>
+        </div>
+      </div>
 
-  <a class="nodo" href="#paisaje-sonoro" data-titulo="Paisaje sonoro"
-     style="left: 21.9%; top: 81.1%; width: 10.9%; height: 8.9%;">
-    <img src="simbolos/7.png" alt="Paisaje sonoro">
-  </a>
-</main>
+      <div class="col-der">
+        <div class="escenario" aria-label="Fotografía del Árbol de la Resistencia con objetos por descubrir">
+          <div class="escenario-meta">
+            <span>Árbol de la Resistencia</span>
+            <span id="contador" aria-live="polite">Objetos descubiertos: 0 / 5</span>
+          </div>
+          <div class="foto" id="stage">
+            <img src="assets/img/arbol.jpg" width="1400" height="2100"
+                 alt="Un gran árbol de eucalipto en una zona verde de Ciudad Bolívar; debajo, niños jugando y una reunión comunitaria.">
+            <!-- Los cuadros blancos (botones) los genera js/main.js desde js/data.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. LOS TRES FRENTES + APOYO ============ -->
+    <section class="apoyo" id="apoyo" aria-labelledby="apoyo-titulo">
+      <div class="apoyo-int">
+        <p class="etiqueta">Lorem ipsum</p>
+        <h2 id="apoyo-titulo">Apoya a quienes cuidan el territorio.</h2>
+        <p class="apoyo-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+
+        <div class="frentes">
+          <article class="frente" style="--c:#FCD116">
+            <span class="frente-n">01</span>
+            <h3>Lorem ipsum</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </article>
+          <article class="frente" style="--c:#003893; --n:#5B86E0">
+            <span class="frente-n">02</span>
+            <h3>Dolor sit</h3>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+          </article>
+          <article class="frente" style="--c:#CE1126; --n:#F0505F">
+            <span class="frente-n">03</span>
+            <h3>Amet elit</h3>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+          </article>
+        </div>
+
+        <div class="contacto">
+          <a class="boton" href="mailto:contacto@ejemplo.org?subject=%C3%81rbol%20de%20la%20Resistencia">Escríbenos</a>
+          <a class="boton boton-ghost" href="#" aria-disabled="true" title="Pendiente: enlazar el dossier en PDF">Descargar dossier (PDF)</a>
+          <p class="pendiente">[Por completar] correo de contacto, enlace al dossier y datos de la organización</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>Árbol de la Resistencia · Ciudad Bolívar, Bogotá · 2026</p>
+    <p class="pendiente">[Por completar] Créditos, instituciones aliadas y autorización de uso de imágenes</p>
+  </footer>
+
+  <!-- ============ VENTANA SOBREPUESTA (se rellena desde js/data.js) ============ -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-fondo" data-cerrar></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-titulo" tabindex="-1">
+      <div class="modal-barra">
+        <span class="modal-pos" id="modal-pos"></span>
+        <div class="modal-acciones">
+          <button type="button" id="prev" aria-label="Objeto anterior">←</button>
+          <button type="button" id="next" aria-label="Objeto siguiente">→</button>
+          <button type="button" id="cerrar" data-cerrar aria-label="Cerrar">Cerrar ✕</button>
+        </div>
+      </div>
+      <div class="modal-cuerpo" id="modal-cuerpo"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/extras.js"></script>
 
 </body>
 </html>

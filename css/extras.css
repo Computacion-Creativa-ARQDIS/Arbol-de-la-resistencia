@@ -1,0 +1,150 @@
+/* Estilos añadidos. Se cargan después de styles.css. */
+
+/* ---- Navegación visible arriba a la derecha ---- */
+.menu { position: fixed; top: 1rem; right: 1rem; z-index: 60; display: flex; gap: .5rem; font-family: Inter, system-ui, sans-serif; }
+.menu a { background: #fff; border: 1.5px solid #111; color: #111; padding: .35rem .9rem; border-radius: 999px; text-decoration: none; font-size: .9rem; }
+.menu a:hover, .menu a:focus-visible { background: #111; color: #fff; }
+
+/* ---- Páginas auxiliares (About y Archivo) ---- */
+.pagina-simple { max-width: 1000px; margin: 0 auto; padding: 2.5rem 1.25rem 5rem; font-family: Inter, system-ui, sans-serif; color: #111; }
+.pagina-simple h1 { font-family: 'Barlow Condensed', system-ui, sans-serif; font-size: clamp(2rem, 6vw, 3.2rem); margin: .2rem 0 1rem; }
+.volver { color: #111; text-decoration: none; border-bottom: 1px solid #111; }
+.personas { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+.persona { border: 1.5px solid #111; border-radius: 6px; padding: .75rem; }
+.persona .foto { aspect-ratio: 1; background: #ddd; border-radius: 6px; margin-bottom: .5rem; }
+.persona h3 { margin: 0; font-size: 1rem; }
+.persona p { margin: .2rem 0 0; font-size: .85rem; color: #555; }
+.galeria-archivo { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: .6rem; margin-top: 1.5rem; }
+.galeria-archivo .ficha { aspect-ratio: 1; border: 1.5px dashed #888; border-radius: 6px; display: grid; place-items: center; font-size: .8rem; color: #666; text-align: center; padding: .4rem; overflow: hidden; }
+.galeria-archivo img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; }
+.sentinela { text-align: center; color: #666; font-size: .85rem; padding: 1rem; }
+
+/* ---- Glitch dentro de la foto del árbol (igual al archivo de referencia) ---- */
+#stage { position: relative; }
+.glitch-capa { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.glitch { position: absolute; width: 10px; height: 10px; border-radius: 2px; animation: parpadeo 1.6s steps(2) infinite; }
+@keyframes parpadeo {
+  0%   { opacity: 1;  transform: translate(0, 0); }
+  50%  { opacity: .2; transform: translate(4px, -3px); }
+  100% { opacity: 1;  transform: translate(-3px, 2px); }
+}
+
+/* ---- Encabezado nuevo: barra + hero + franja (maqueta aprobada) ---- */
+:root {
+  --enc-tinta: #141414;
+  --enc-papel: #ffffff;
+  --enc-amarillo: #F2B93B;
+  --enc-gris: #6b6b68;
+  --enc-linea: #d9d9d6;
+}
+
+.barra {
+  position: sticky; top: 0; z-index: 40;
+  background: var(--enc-papel);
+  border-bottom: 1px solid var(--enc-linea);
+  display: flex; align-items: center; justify-content: flex-end;
+  padding: .9rem clamp(1rem, 4vw, 2.5rem);
+}
+.barra .nav { display: flex; gap: .5rem; }
+.barra .nav a {
+  font: 500 .9rem Inter, system-ui, sans-serif; color: var(--enc-tinta); text-decoration: none;
+  padding: .4rem .9rem; border: 1.5px solid var(--enc-tinta); border-radius: 999px;
+}
+.barra .nav a:hover, .barra .nav a:focus-visible { background: var(--enc-tinta); color: var(--enc-papel); }
+
+.hero {
+  padding: clamp(2rem, 6vw, 4.5rem) clamp(1rem, 4vw, 2.5rem) clamp(1.5rem, 4vw, 2.5rem);
+  display: grid; gap: 1.25rem;
+  background: var(--enc-papel); color: var(--enc-tinta);
+}
+.hero h1 {
+  margin: 0;
+  font: 700 clamp(3.2rem, 11vw, 9rem)/.88 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -.005em;
+}
+.hero .lema {
+  font: 700 clamp(1.4rem, 3.2vw, 2.2rem)/1.05 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  text-transform: uppercase; margin: 0;
+}
+.hero .datos {
+  display: flex; flex-wrap: wrap; gap: .5rem 1.25rem;
+  font: 600 .8rem Inter, system-ui, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--enc-gris);
+  margin: 0; list-style: none; padding: 0;
+}
+.hero .datos li + li::before { content: '•'; margin-right: 1.25rem; color: var(--enc-linea); }
+
+.franja {
+  border-top: 1px solid var(--enc-tinta);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  background: var(--enc-papel);
+}
+.franja .accion {
+  display: flex; align-items: center; gap: .75rem;
+  padding: 1.5rem clamp(1rem, 3vw, 2rem);
+  font: 700 1rem 'Barlow Condensed', 'Arial Narrow', sans-serif; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--enc-tinta); text-decoration: none; border-left: 1px solid var(--enc-tinta);
+  justify-content: space-between;
+  transition: background .2s, color .2s;
+}
+.franja .accion span { font-size: 1.2rem; line-height: 1; }
+.franja .accion:hover, .franja .accion:focus-visible { background: var(--enc-tinta); color: var(--enc-papel); }
+.franja .accion.principal { background: var(--enc-amarillo); }
+.franja .accion.principal:hover, .franja .accion.principal:focus-visible { background: var(--enc-tinta); color: var(--enc-amarillo); }
+
+@media (max-width: 720px) {
+  .franja { grid-template-columns: 1fr; }
+  .franja .accion { border-left: 0; border-top: 1px solid var(--enc-tinta); }
+}
+
+/* ---- Ajustes a la frase inicial: más compacta ---- */
+.frase {
+  font-size: clamp(.92rem, 1.4vw, 1.1rem) !important;
+  line-height: 1.55 !important;
+}
+.chip {
+  width: 1.5em !important;
+  height: 1.1em !important;
+}
+
+/* ---- Ocultar el contador de objetos descubiertos ---- */
+#contador { display: none !important; }
+
+/* ---- Sección árbol: dos columnas (texto + tarjetas | foto grande) ---- */
+.seccion-arbol {
+  display: grid;
+  grid-template-columns: minmax(260px, 30%) 1fr;
+  gap: 2.5rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5.5rem) clamp(1rem, 4vw, 2.5rem) 4rem;
+  align-items: start;
+}
+.seccion-arbol .col-izq { display: grid; gap: 1.6rem; min-width: 0; }
+.seccion-arbol .pista { margin: 0; font-size: .76rem; }
+
+/* Tarjetas apiladas verticalmente, cada una en su propio cuadro (como en la imagen) */
+.rejilla-vertical {
+  grid-template-columns: 1fr !important;
+  max-width: none !important;
+  gap: 1rem;
+}
+.rejilla-vertical .celda-p {
+  padding: 1.5rem !important;
+  border: 1px solid var(--linea) !important;
+  border-radius: 4px;
+}
+.rejilla-vertical .celda-p h3 {
+  font-size: clamp(1.3rem, 2.4vw, 1.8rem) !important;
+}
+.rejilla-vertical .celda-p p { font-size: .82rem; max-width: none; }
+
+.seccion-arbol .col-der { position: sticky; top: 1rem; min-width: 0; }
+.seccion-arbol .escenario { max-width: none; }
+
+@media (max-width: 860px) {
+  .seccion-arbol { grid-template-columns: 1fr; }
+  .seccion-arbol .col-der { position: static; order: -1; }
+}
