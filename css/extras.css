@@ -146,5 +146,10 @@
 
 @media (max-width: 860px) {
   .seccion-arbol { grid-template-columns: 1fr; }
-  .seccion-arbol .col-der { position: static; order: -1; }
+  /* En móvil, el orden deseado es: texto de la frase, luego la foto del árbol, luego las tarjetas */
+  .seccion-arbol .col-izq { display: contents; }
+  .seccion-arbol .frase,
+  .seccion-arbol .pista { order: 1; }
+  .seccion-arbol .col-der { position: static; order: 2; }
+  .seccion-arbol .rejilla-vertical { order: 3; }
 }
